@@ -1,4 +1,4 @@
-# Homework 1 - *BLOGLIFE
+# Homework 1 - *BLOGLIFE*
 
 **BLOGLIFE** Trang web cho phép người dùng chia sẻ và cập nhật trạng thái. Due Date: 24:00 11/10/2016
 
