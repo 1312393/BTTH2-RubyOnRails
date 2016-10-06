@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+#gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -27,14 +27,23 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# gem 'sass', '~> 3.4.19'
+# gem 'bootstrap', '~> 4.0.0.alpha4'
+# gem 'bootstrap-sass', '~> 3.2.0'
+# gem 'autoprefixer-rails'
+
+gem 'redcarpet'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
+gem 'bootstrap', '~> 4.0.0.alpha4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
-
+gem 'sprockets', '2.11.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -43,3 +52,12 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development do
+	gem 'pg'
+end
+
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end

@@ -9986,3 +9986,391 @@ Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-05 22:45:06 +0
 
 
 Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-05 22:45:06 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-06 20:35:39 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (35.3ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (44.4ms)
+Completed 200 OK in 168ms (Views: 119.9ms | ActiveRecord: 37.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-06 20:35:40 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-06 20:41:24 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.5ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (10.1ms)
+Warning. Error encountered while saving cache 8b3de526d59833f68c07039b5d5e8c48c8cae725/articles.css.scssc: can't dump anonymous class #<Class:0x00000003a94838>
+
+Warning. Error encountered while saving cache 8b3de526d59833f68c07039b5d5e8c48c8cae725/scaffolds.css.scssc: can't dump anonymous class #<Class:0x00000003a94838>
+
+Completed 200 OK in 2764ms (Views: 2749.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-06 20:41:27 +0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2016-10-06 20:41:27 +0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-10-06 20:41:27 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:27 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:27 +0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:28 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-06 20:41:30 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.5ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 100ms (Views: 86.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:09 +0700
+
+
+Started GET "/articles/1/edit" for 127.0.0.1 at 2016-10-06 20:42:13 +0700
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (1.7ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered articles/_form.html.erb (60.1ms)
+  Rendered articles/edit.html.erb within layouts/application (71.7ms)
+Completed 200 OK in 87ms (Views: 79.8ms | ActiveRecord: 2.1ms)
+
+
+Started PATCH "/articles/1" for 127.0.0.1 at 2016-10-06 20:42:14 +0700
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hQx4nIHLpBQXYKMETOGZ3AF6zCYn6DaX4v797uTaaBg=", "article"=>{"title"=>"Blog 1 :  Ruby", "body"=>"Tìm **hiểu** ruby"}, "commit"=>"Update Article", "id"=>"1"}
+  [1m[35mArticle Load (0.4ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/articles/1
+Completed 302 Found in 16ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2016-10-06 20:42:14 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mComment Load (84.9ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1  [["article_id", 1]]
+  Rendered articles/show.html.erb within layouts/application (151.3ms)
+Completed 200 OK in 160ms (Views: 71.6ms | ActiveRecord: 87.4ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-06 20:42:15 +0700
+
+
+Started GET "/articles" for 127.0.0.1 at 2016-10-06 20:42:17 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.5ms)
