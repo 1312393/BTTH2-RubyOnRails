@@ -17,7 +17,7 @@
         <% @article.comments.each do |comment| %>
             <div class='card' href="/articles">
               <div class='card-block'>
-                <h4 class='card-title'><%= comment.commenter %></h4>
+                <h4 class='card-title'><%= comment.user.email %></h4>
                 <p class='card-text'> <%= comment.body %> </p>
               </div>
             </div>
@@ -27,8 +27,7 @@
         <h2>Add a comment:</h2>
         <%= form_for([@article, @article.comments.build]) do |f| %>
             <p>
-              <%= f.label :commenter %><br>
-              <%= f.text_field :commenter %>
+              <b><%= current_user.email %></b><br>
             </p>
             <p>
               <%= f.label :body %><br>
