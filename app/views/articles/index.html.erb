@@ -1,4 +1,6 @@
 <div class="container">
+
+  <div class="col-xs-8">
     <table>
         <% @articles.each do |article| %>
         <div class='card' href="/articles">
@@ -25,5 +27,19 @@
 
     <br>
     <%= link_to 'New Article', new_article_path %>
+  </div>
+  <div class="col-xs-4">
+    <h4>Friend List</h4>
+    <% current_user.friends.each do |friend| %>
+        <div class='card-block' >
+          <h5 class='card-title'>
+            <img src=<%= friend.avatar.url%>  width="40" height="40" alt="no pic">
+            <%=friend.email%>
+          </h5>
 
+
+        </div>
+    <%end%>
+  </div>
 </div>
+
