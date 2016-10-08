@@ -19208,3 +19208,896 @@ Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-08 14:57:11
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-08 14:57:11 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-08 15:33:09 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'bin/rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.2) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.2) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__677995991__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (656.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFriendships (20161008054007)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (21.0ms)[0m  [1mCREATE TABLE "friendships" ("id" serial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161008054007"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddFriendshipToUser (20161008054125)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "Friendship" integer[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161008054125"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveFriend (20161008060513)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" DROP "friend"[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "users" DROP "Friendship"
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161008060513"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-08 15:33:32 +0700
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles"
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered articles/index.html.erb within layouts/application (31.0ms)
+Warning. Error encountered while saving cache 24bf3171ae8277d9809f08a171768a3a9fa17362/application.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache c8722de76e6898b97e4552f3ceec95c9d0a6d37d/_bootstrap.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_custom.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_variables.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_mixins.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_breakpoints.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_hover.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_image.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_tag.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_reset-filter.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_resize.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_screen-reader.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_size.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_tab-focus.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_reset-text.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_text-emphasis.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_text-hide.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_text-truncate.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_alert.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_buttons.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_cards.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_pagination.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_lists.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_list-group.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_nav-divider.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_forms.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_progress.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_table-row.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_background-variant.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_border-radius.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_gradients.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_clearfix.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_grid-framework.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_grid.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 8f445008f07914e63bb0236d9e8b31266d8d3614/_pulls.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_normalize.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_print.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_reboot.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_type.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_images.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_code.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_grid.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_tables.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_forms.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_buttons.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_animation.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_dropdown.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_button-group.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_input-group.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_custom-forms.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_nav.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_navbar.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_card.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_breadcrumb.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_pagination.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_tags.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_jumbotron.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_alert.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_progress.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_media.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_list-group.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_responsive-embed.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_close.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_modal.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_tooltip.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_popover.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_carousel.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache e2a03db48a80b94bea74a83c6dc3690b9d7f60ad/_utilities.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 543716e3e23d9884281099a516424e82fc87780a/_background.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 543716e3e23d9884281099a516424e82fc87780a/_clearfix.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 543716e3e23d9884281099a516424e82fc87780a/_display.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 543716e3e23d9884281099a516424e82fc87780a/_flex.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 543716e3e23d9884281099a516424e82fc87780a/_pulls.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 543716e3e23d9884281099a516424e82fc87780a/_screenreaders.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 543716e3e23d9884281099a516424e82fc87780a/_spacing.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 543716e3e23d9884281099a516424e82fc87780a/_text.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Warning. Error encountered while saving cache 543716e3e23d9884281099a516424e82fc87780a/_visibility.scssc: can't dump anonymous class #<Class:0x00000002b51fd8>
+
+Completed 200 OK in 6225ms (Views: 6165.9ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:53 +0700
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-10-08 15:33:57 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NXXnULXiqWWZljJlMUnXrzcfnC6D0gy9Dq0nY3CDYIM="}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 37ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-08 15:33:57 +0700
+Processing by ArticlesController#index as HTML
+Completed 401 Unauthorized in 4ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 15:33:57 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (4.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (109.0ms)
+Completed 200 OK in 215ms (Views: 213.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-08 15:33:58 +0700
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 15:34:00 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CJItL/WZVCLMh8g+qRAUF49/8MzS01+YZUwpIkdgAdc=", "user"=>{"email"=>"nguyen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'nguyen@gmail.com' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (3.0ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 1[0m  [["last_sign_in_at", Sat, 08 Oct 2016 08:19:19 UTC +00:00], ["current_sign_in_at", Sat, 08 Oct 2016 08:34:01 UTC +00:00], ["sign_in_count", 4], ["updated_at", Sat, 08 Oct 2016 08:34:01 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 235ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered articles/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 67ms (Views: 65.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:01 +0700
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2016-10-08 15:34:07 +0700
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered articles/_form.html.erb (7.0ms)
+  Rendered articles/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 107ms (Views: 93.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2016-10-08 15:34:10 +0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AoyQukxAbEv0w3SCoPaapv7rUHDbPCtmLnmv14dl+cE=", "article"=>{"title"=>"sad", "body"=>"asdasd"}, "commit"=>"Create Article"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "articles" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "asdasd"], ["created_at", Sat, 08 Oct 2016 08:34:10 UTC +00:00], ["title", "sad"], ["updated_at", Sat, 08 Oct 2016 08:34:10 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/articles/2
+Completed 302 Found in 9ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2016-10-08 15:34:10 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mComment Load (3.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 2]]
+  Rendered articles/show.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 101ms (Views: 92.2ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-08 15:34:11 +0700
+
+
+Started GET "/articles" for 127.0.0.1 at 2016-10-08 15:34:13 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered articles/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 77ms (Views: 72.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/friendships" for 127.0.0.1 at 2016-10-08 15:34:30 +0700
+
+ActionController::RoutingError (No route matches [GET] "/friendships"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (656.0ms)
+
+
+Started GET "/friendships" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+Processing by FriendshipsController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+DEPRECATION WARNING: Calling #find(:all) is deprecated. Please call #all directly instead. You have also used finder options. These are also deprecated. Please build a scope instead of using finder options. (called from C:in `find':)
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from C:in `find':)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (id != 1)[0m
+  Rendered friendships/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 80ms (Views: 61.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:14 +0700
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-10-08 15:35:25 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AoyQukxAbEv0w3SCoPaapv7rUHDbPCtmLnmv14dl+cE="}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 10ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-08 15:35:25 +0700
+Processing by ArticlesController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 15:35:25 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 124ms (Views: 121.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-08 15:35:25 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:25 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:25 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:25 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:26 +0700
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-08 15:35:28 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 110ms (Views: 109.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4Cg/Uj4QUZSAM701y70rjjzOrcmfTDC/5DxD5PJ1p7A=", "user"=>{"email"=>"phan@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'phan@gmail.com' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Sat, 08 Oct 2016 08:35:36 UTC +00:00], ["email", "phan@gmail.com"], ["encrypted_password", "$2a$10$1acARXrxUWxaIRwwFq.JO.ga1HGhKyUXNXcwcYShmeNajpZPSLnEi"], ["updated_at", Sat, 08 Oct 2016 08:35:36 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 2  [["last_sign_in_at", Sat, 08 Oct 2016 08:35:36 UTC +00:00], ["current_sign_in_at", Sat, 08 Oct 2016 08:35:36 UTC +00:00], ["last_sign_in_ip", #<IPAddr: IPv4:127.0.0.1/255.255.255.255>], ["current_sign_in_ip", #<IPAddr: IPv4:127.0.0.1/255.255.255.255>], ["sign_in_count", 1], ["updated_at", Sat, 08 Oct 2016 08:35:36 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 192ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered articles/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 87ms (Views: 75.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:36 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:37 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:37 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:37 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:37 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:37 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:37 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:37 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:37 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:37 +0700
+
+
+Started GET "/friendships" for 127.0.0.1 at 2016-10-08 15:35:44 +0700
+Processing by FriendshipsController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+DEPRECATION WARNING: Calling #find(:all) is deprecated. Please call #all directly instead. You have also used finder options. These are also deprecated. Please build a scope instead of using finder options. (called from C:in `find':)
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from C:in `find':)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (id != 2)[0m
+  Rendered friendships/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 66ms (Views: 62.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:44 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-08 15:35:44 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:44 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:44 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:44 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:44 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
