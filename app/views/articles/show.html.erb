@@ -5,7 +5,9 @@
             <strong><%= @article.title %></strong>
             <br>
         </p>
-
+        <p>
+          <img style="max-width: calc(50% - 20px)" src=<%= @article.picture.url%>  alt="nopic" >
+        </p>
         <p>
             <strong>Text:</strong>
             <%= @article.body %>

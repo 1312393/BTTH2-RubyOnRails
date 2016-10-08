@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  def new
+  end
   def create
 
     @article = Article.find(params[:article_id])
@@ -12,6 +14,7 @@ class CommentsController < ApplicationController
       flash.now[:danger] = "error"
     end
   end
+
 
   private
   def comment_params

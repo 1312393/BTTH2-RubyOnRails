@@ -2,13 +2,19 @@
 
   <div class="col-xs-8">
     <table>
-        <% @articles.each do |article| %>
+        <% @articles.reverse_order.each do |article| %>
         <div class='card' href="/articles">
             <div class='card-block'>
                 <h4 class='card-title'>
                     <%= article.title %>
                     from
-                    <%= article.user.email%></h4>
+                    <%= article.user.email%>
+                </h4>
+                <%if article.picture? %>
+                  <div id="ImageContainerr">
+                    <img style="max-width: calc(100% - 20px)" src=<%= article.picture.url%>  alt="nopic" >
+                  </div>
+                <%end%>
                 <p class='card-text'>
                     <%=  @markdown.render(article.body).html_safe %>
                 </p>
