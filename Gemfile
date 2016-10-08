@@ -6,6 +6,7 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -23,10 +24,14 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-gem 'devise', '~> 3.5', '>= 3.5.6'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# gem 'sass', '~> 3.4.19'
+# gem 'bootstrap', '~> 4.0.0.alpha4'
+# gem 'bootstrap-sass', '~> 3.2.0'
+# gem 'autoprefixer-rails'
 
 gem 'redcarpet'
 
@@ -37,4 +42,14 @@ end
 
 gem 'bootstrap', '~> 4.0.0.alpha4'
 
+# Use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'sprockets', '2.11.0'
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]

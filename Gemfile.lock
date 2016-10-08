@@ -129,7 +129,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap (~> 4.0.0.alpha4)
   coffee-rails (~> 4.0.0)
-  devise (~> 3.5, >= 3.5.6)
+  devise
   jbuilder (~> 1.2)
   jquery-rails
   pg
