@@ -1,25 +1,29 @@
 <div class="container">
-
-      <table>
+    <table>
         <% @articles.each do |article| %>
-            <div class='card' href="/articles">
-              <div class='card-block'>
-                <h4 class='card-title'> "<%= article.title %>" from "<%= article.user.email%>"</h4>
-                <p class='card-text'> <%=  article.body %> </p>
+        <div class='card' href="/articles">
+            <div class='card-block'>
+                <h4 class='card-title'>
+                    <%= article.title %>
+                    from
+                    <%= article.user.email%></h4>
+                <p class='card-text'>
+                    <%=  @markdown.render(article.body).html_safe %>
+                </p>
                 <div class='card-footer'>
-                  <%= link_to 'Show', article, class: 'btn btn-success' %>
-                  <%if current_user.email == article.user.email%>
+                    <%= link_to 'Show', article, class: 'btn btn-success' %>
+                    <%if current_user.email == article.user.email%>
                     <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-success' %>
                     <%= link_to 'Destroy', article, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-success' %>
-                  <%end%>
+                    <%end%>
                 </div>
-              </div>
             </div>
+        </div>
+      </br>
         <% end %>
-      </table>
+    </table>
 
-
-  <br>
-  <%= link_to 'New Article', new_article_path %>
+    <br>
+    <%= link_to 'New Article', new_article_path %>
 
 </div>

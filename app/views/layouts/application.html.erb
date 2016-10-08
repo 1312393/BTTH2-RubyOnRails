@@ -1,27 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Blog</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
+    <head>
+        <title>Blog</title>
+        <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8">
-          <h1>BLOGLIFE</h1>
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-          <%=link_to 'Sign up' ,new_user_registration_path %> |
-          <%=link_to 'Sign in' ,new_user_session_path %>
-          <% if user_signed_in? %>
-            |<%= current_user.email%>(<%=link_to 'Sign out' ,destroy_user_session_path,  :method=>'delete' %>)
-          <%end%>
-          <%= yield %>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar navbar-dark bg-inverse">
+                    <div class="col-xs-4">
+                        <a class="navbar-brand" href="#">BLOGLIFE</a>
+                    </div>
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <ul class="nav navbar-nav">
+                            <!-- <p class="notice"><%= notice %></p>
+                        <p class="alert"><%= alert %></p> -->
+                            <% if user_signed_in? %>
+                            <li class="nav-item">
+                                <a class="btn btn-primary "><%= current_user.email%></a>
+                            </li>
+                            <li class="nav-item">
+                                <%=link_to 'Sign out' ,destroy_user_session_path,  :method=>'delete',class: 'btn btn-primary' %>
+
+                            </li>
+                        <% else %>
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <%=link_to 'Sign up' ,new_user_registration_path %>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <%=link_to 'Login in' ,new_user_session_path %>
+                                </a>
+                            </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                    <!-- <p class="notice"><%= notice %></p>
+                    <p class="alert"><%= alert %></p>
+                    <%=link_to 'Sign up' ,new_user_registration_path %>
+                    |
+                    <%=link_to 'Sign in' ,new_user_session_path %>
+                    <% if user_signed_in? %>
+                    |<%= current_user.email%>(<%=link_to 'Sign out' ,destroy_user_session_path,  :method=>'delete' %>)
+                    <%end%> -->
+                </nav>
+            </div>
+          </br>
+            <%= yield %>
         </div>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>
