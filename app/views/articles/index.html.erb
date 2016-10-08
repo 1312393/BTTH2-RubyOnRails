@@ -1,12 +1,20 @@
 <div class="container">
+
+  <div class="col-xs-8">
     <table>
-        <% @articles.each do |article| %>
+        <% @articles.reverse_order.each do |article| %>
         <div class='card' href="/articles">
             <div class='card-block'>
                 <h4 class='card-title'>
                     <%= article.title %>
                     from
-                    <%= article.user.email%></h4>
+                    <%= article.user.email%>
+                </h4>
+                <%if article.picture? %>
+                  <div id="ImageContainerr">
+                    <img style="max-width: calc(100% - 20px)" src=<%= article.picture.url%>  alt="nopic" >
+                  </div>
+                <%end%>
                 <p class='card-text'>
                     <%=  @markdown.render(article.body).html_safe %>
                 </p>
@@ -25,5 +33,19 @@
 
     <br>
     <%= link_to 'New Article', new_article_path %>
+  </div>
+  <div class="col-xs-4">
+    <h4>Friend List</h4>
+    <% current_user.friends.each do |friend| %>
+        <div class='card-block' >
+          <h5 class='card-title'>
+            <img src=<%= friend.avatar.url%>  width="40" height="40" alt="no pic">
+            <%=friend.email%>
+          </h5>
 
+
+        </div>
+    <%end%>
+  </div>
 </div>
+

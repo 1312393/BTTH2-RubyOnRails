@@ -23,6 +23,16 @@
             <%= f.label :body %><br>
             <%= f.text_area :body %>
           </div>
+          <div class="field">
+            <%if :picture?%>
+                <%= f.label :picture %><br>
+                <img style="max-width: calc(50% - 20px)" src=<%= @article.picture.url%>  alt="nopic" >
+                <%= f.file_field :picture %>
+            <%else%>
+                <%= f.label :picture %><br>
+                <%= f.file_field :picture %>
+            <%end%>
+          </div>
           <div class="actions">
             <%= f.submit %>
           </div>
