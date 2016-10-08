@@ -1,39 +1,42 @@
 <div class="container">
 
-      <table>
+    <table>
         <p>
-          <strong><%= @article.title %></strong>
-          <br>
+            <strong><%= @article.title %></strong>
+            <br>
         </p>
 
         <p>
-          <strong>Text:</strong>
-          <%= @article.body %>
+            <strong>Text:</strong>
+            <%= @article.body %>
         </p>
-        <%= link_to 'Edit', edit_article_path(@article) %> |
+        <%= link_to 'Edit', edit_article_path(@article) %>
+        |
         <%= link_to 'Back', articles_path %>
         <h2>Comments</h2>
         <% @article.comments.each do |comment| %>
-            <div class='card' href="/articles">
-              <div class='card-block'>
+        <div class='card' href="/articles">
+            <div class='card-block'>
                 <h4 class='card-title'><%= comment.user.email %></h4>
-                <p class='card-text'> <%= comment.body %> </p>
-              </div>
+                <p class='card-text'>
+                    <%= comment.body %>
+                </p>
             </div>
+        </div>
 
         <% end %>
 
         <h2>Add a comment:</h2>
         <%= form_for([@article, @article.comments.build]) do |f| %>
-            <p>
-              <%= f.label :body %><br>
-              <%= f.text_area :body %>
-            </p>
-            <p>
-              <%= f.submit %>
-            </p>
+        <p>
+            <%= f.label :body %><br>
+            <%= f.text_area :body %>
+        </p>
+        <p>
+            <%= f.submit %>
+        </p>
         <% end %>
 
-      </table>
+    </table>
 
 </div>
