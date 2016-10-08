@@ -46,6 +46,7 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'sprockets', '2.11.0'
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 

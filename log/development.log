@@ -20101,3 +20101,2601 @@ Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-08 15:35:45 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 01:58:11 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'bin/rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.2) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.2) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1356335678__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (627.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Addavatar (20161008185451)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (125.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "avatar" character varying(255)[0m
+PG::DuplicateColumn: ERROR:  column "avatar" of relation "users" already exists
+: ALTER TABLE "users" ADD COLUMN "avatar" character varying(255)
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (243.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (4.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateArticles (20160928135549)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (20.0ms)[0m  [1mCREATE TABLE "articles" ("id" serial primary key, "title" character varying(255), "body" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160928135549"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20161002041732)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "commenter" character varying(255), "body" text, "article_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.0ms)[0m  CREATE INDEX "index_comments_on_article_id" ON "comments" ("article_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161002041732"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to DeviseCreateUsers (20161007182315)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (31.0ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161007182315"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to Addusercolumn (20161007183302)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "articles" ADD COLUMN "user_id" integer
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161007183302"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to Fixcoment (20161007190707)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "comments" ADD COLUMN "user_id" integer
+  [1m[36m (55.0ms)[0m  [1mALTER TABLE "comments" DROP "commenter"[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161007190707"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to Fixuser1 (20161007211347)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (527.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "friend" character varying(255)[] DEFAULT '{}'[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161007211347"]]
+  [1m[36m (32.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFriendships (20161008054007)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (784.0ms)[0m  [1mCREATE TABLE "friendships" ("id" serial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161008054007"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddFriendshipToUser (20161008054125)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "Friendship" integer[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161008054125"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveFriend (20161008060513)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (24.0ms)[0m  [1mALTER TABLE "users" DROP "friend"[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "users" DROP "Friendship"
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161008060513"]]
+  [1m[35m (24.0ms)[0m  COMMIT
+Migrating to Addavatar (20161008185451)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "users" ADD COLUMN "avatar" character varying(255)
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161008185451"]]
+  [1m[35m (3.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 01:59:45 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1
+Completed 401 Unauthorized in 30ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-09 01:59:53 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (3.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 1581ms (Views: 1565.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 01:59:55 +0700
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 128ms (Views: 126.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:56 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:57 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:57 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:57 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:57 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:57 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:01:57 +0700
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:01:59 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VDGU8gIbh9LwyKuUrYH4hHSbd2G3anD5krH8Dyej8E8=", "user"=>{"email"=>"phan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'phan@gmail.com' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VDGU8gIbh9LwyKuUrYH4hHSbd2G3anD5krH8Dyej8E8=", "user"=>{"email"=>"phan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered devise/shared/_links.html.erb (0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 189ms (Views: 113.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:00 +0700
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-09 02:02:02 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 115ms (Views: 114.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VDGU8gIbh9LwyKuUrYH4hHSbd2G3anD5krH8Dyej8E8=", "user"=>{"email"=>"nguyen@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'nguyen@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Sat, 08 Oct 2016 19:02:09 UTC +00:00], ["email", "nguyen@gmail.com"], ["encrypted_password", "$2a$10$0HdafMWsMn8GKcjd3LnBTOtKkTK7OfLHTp157DyJt78wvOJJaYSZu"], ["updated_at", Sat, 08 Oct 2016 19:02:09 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 1[0m  [["last_sign_in_at", Sat, 08 Oct 2016 19:02:09 UTC +00:00], ["current_sign_in_at", Sat, 08 Oct 2016 19:02:09 UTC +00:00], ["last_sign_in_ip", #<IPAddr: IPv4:127.0.0.1/255.255.255.255>], ["current_sign_in_ip", #<IPAddr: IPv4:127.0.0.1/255.255.255.255>], ["sign_in_count", 1], ["updated_at", Sat, 08 Oct 2016 19:02:09 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 201ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 91ms (Views: 77.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:09 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:10 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:10 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:10 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:10 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:10 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:10 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:10 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:10 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:10 +0700
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2016-10-09 02:02:12 +0700
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered articles/_form.html.erb (5.0ms)
+  Rendered articles/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 105ms (Views: 76.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VDGU8gIbh9LwyKuUrYH4hHSbd2G3anD5krH8Dyej8E8=", "article"=>{"title"=>"pjd", "body"=>"sadasd"}, "commit"=>"Create Article"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "articles" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "sadasd"], ["created_at", Sat, 08 Oct 2016 19:02:16 UTC +00:00], ["title", "pjd"], ["updated_at", Sat, 08 Oct 2016 19:02:16 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/articles/1
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1  [["article_id", 1]]
+  Rendered articles/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 86ms (Views: 80.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:16 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:17 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:17 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:17 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:17 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:17 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:17 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:17 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:17 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:17 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:02:17 +0700
+
+
+Started GET "/articles" for 127.0.0.1 at 2016-10-09 02:02:18 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered articles/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 85ms (Views: 82.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2016-10-09 02:07:05 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered articles/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 125ms (Views: 100.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:06 +0700
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VDGU8gIbh9LwyKuUrYH4hHSbd2G3anD5krH8Dyej8E8="}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+Processing by ArticlesController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 111ms (Views: 110.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:09 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:10 +0700
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:07:11 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eW53e+y0Th9MBfEx6f2hfbbf/uNitcyxhcQd72appaA=", "user"=>{"email"=>"nguyen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'nguyen@gmail.com' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = 1  [["current_sign_in_at", Sat, 08 Oct 2016 19:07:11 UTC +00:00], ["sign_in_count", 2], ["updated_at", Sat, 08 Oct 2016 19:07:11 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 158ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:07:11 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered articles/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 79ms (Views: 77.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:12 +0700
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2016-10-09 02:07:20 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered devise/registrations/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 88ms (Views: 85.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:21 +0700
+
+
+Started DELETE "/users" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+Processing by Devise::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CEEpD7v1/IM7ppTAlaLP4THvLCOFsbAkLnF/61g/o9A="}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 1]]
+  [1m[36m (64.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 70ms (ActiveRecord: 66.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+Processing by ArticlesController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 123ms (Views: 122.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:07:29 +0700
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-09 02:07:32 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 111ms (Views: 109.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-10-09 02:07:42 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/ssVCOAH5BMn+lI+UsxHFMpfML3+pOLMOxmSPkEyOPA=", "user"=>{"email"=>"nguyen@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x000000077740f0 @tempfile=#<Tempfile:C:/Users/THANHK~1/AppData/Local/Temp/RackMultipart20161009-7704-9wkyde>, @original_filename="[Adeptus Mechanicus 01] Priests of Mars - Graham McNeill.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"[Adeptus Mechanicus 01] Priests of Mars - Graham McNeill.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Sign up"}
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'nguyen@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("avatar", "created_at", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["avatar", "_Adeptus_Mechanicus_01__Priests_of_Mars_-_Graham_McNeill.jpg"], ["created_at", Sat, 08 Oct 2016 19:07:42 UTC +00:00], ["email", "nguyen@gmail.com"], ["encrypted_password", "$2a$10$McuELM/golII9FB0SFve4u6YlK6FVp0b26ou8BbJeEzNs8rly.Ehq"], ["updated_at", Sat, 08 Oct 2016 19:07:42 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 2[0m  [["last_sign_in_at", Sat, 08 Oct 2016 19:07:42 UTC +00:00], ["current_sign_in_at", Sat, 08 Oct 2016 19:07:42 UTC +00:00], ["last_sign_in_ip", #<IPAddr: IPv4:127.0.0.1/255.255.255.255>], ["current_sign_in_ip", #<IPAddr: IPv4:127.0.0.1/255.255.255.255>], ["sign_in_count", 1], ["updated_at", Sat, 08 Oct 2016 19:07:42 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 177ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:07:42 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered articles/index.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 68ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+     6:                 <h4 class='card-title'>
+     7:                     <%= article.title %>
+     8:                     from
+     9:                     <%= article.user.email%></h4>
+    10:                 <p class='card-text'>
+    11:                     <%=  @markdown.render(article.body).html_safe %>
+    12:                 </p>
+  app/views/articles/index.html.erb:9:in `block in _app_views_articles_index_html_erb__700042227_60482580'
+  app/views/articles/index.html.erb:3:in `_app_views_articles_index_html_erb__700042227_60482580'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (419.0ms)
+  [1m[36m (353.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (4.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateArticles (20160928135549)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE "articles" ("id" serial primary key, "title" character varying(255), "body" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (39.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160928135549"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20161002041732)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "commenter" character varying(255), "body" text, "article_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.0ms)[0m  CREATE INDEX "index_comments_on_article_id" ON "comments" ("article_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161002041732"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to DeviseCreateUsers (20161007182315)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (10.0ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (3.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161007182315"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to Addusercolumn (20161007183302)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "articles" ADD COLUMN "user_id" integer
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161007183302"]]
+  [1m[35m (5.0ms)[0m  COMMIT
+Migrating to Fixcoment (20161007190707)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "comments" ADD COLUMN "user_id" integer
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "comments" DROP "commenter"[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161007190707"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to Fixuser1 (20161007211347)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (48.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "friend" character varying(255)[] DEFAULT '{}'[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161007211347"]]
+  [1m[36m (109.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFriendships (20161008054007)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "friendships" ("id" serial primary key, "user_id" integer, "friend_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161008054007"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddFriendshipToUser (20161008054125)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "Friendship" integer[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161008054125"]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveFriend (20161008060513)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" DROP "friend"[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "users" DROP "Friendship"
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161008060513"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to Addavatar (20161008185451)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "users" ADD COLUMN "avatar" character varying(255)
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161008185451"]]
+  [1m[35m (0.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:08:56 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+Completed 401 Unauthorized in 26ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:09:04 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 275ms (Views: 260.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:04 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:04 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:09:04 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:04 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:04 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:04 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:04 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:05 +0700
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/ssVCOAH5BMn+lI+UsxHFMpfML3+pOLMOxmSPkEyOPA=", "user"=>{"email"=>"nguyen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'nguyen@gmail.com' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/ssVCOAH5BMn+lI+UsxHFMpfML3+pOLMOxmSPkEyOPA=", "user"=>{"email"=>"nguyen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 200ms (Views: 124.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:23 +0700
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-09 02:09:26 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 110ms (Views: 107.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-10-09 02:09:34 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/ssVCOAH5BMn+lI+UsxHFMpfML3+pOLMOxmSPkEyOPA=", "user"=>{"email"=>"nguyen@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x000000050f5eb0 @tempfile=#<Tempfile:C:/Users/THANHK~1/AppData/Local/Temp/RackMultipart20161009-4304-1y1hx6f>, @original_filename="[Adeptus Mechanicus 01] Priests of Mars - Graham McNeill.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"[Adeptus Mechanicus 01] Priests of Mars - Graham McNeill.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Sign up"}
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'nguyen@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "users" ("avatar", "created_at", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["avatar", "_Adeptus_Mechanicus_01__Priests_of_Mars_-_Graham_McNeill.jpg"], ["created_at", Sat, 08 Oct 2016 19:09:34 UTC +00:00], ["email", "nguyen@gmail.com"], ["encrypted_password", "$2a$10$Y3ckiWXHFDP8axB1QJC3E.zePPGbeu7y3lSn8ko5vCLDNomJEn97y"], ["updated_at", Sat, 08 Oct 2016 19:09:34 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 1[0m  [["last_sign_in_at", Sat, 08 Oct 2016 19:09:34 UTC +00:00], ["current_sign_in_at", Sat, 08 Oct 2016 19:09:34 UTC +00:00], ["last_sign_in_ip", #<IPAddr: IPv4:127.0.0.1/255.255.255.255>], ["current_sign_in_ip", #<IPAddr: IPv4:127.0.0.1/255.255.255.255>], ["sign_in_count", 1], ["updated_at", Sat, 08 Oct 2016 19:09:34 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 240ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:09:34 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 101ms (Views: 87.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:09:35 +0700
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/ssVCOAH5BMn+lI+UsxHFMpfML3+pOLMOxmSPkEyOPA="}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+Processing by ArticlesController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 129ms (Views: 128.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:11:26 +0700
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JLtzK9m0J2ECL0MwQ+cT27ZeIro/ND6qcg1Qa0r0XUI=", "user"=>{"email"=>"nguyen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'nguyen@gmail.com' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = 1  [["current_sign_in_at", Sat, 08 Oct 2016 19:14:09 UTC +00:00], ["sign_in_count", 2], ["updated_at", Sat, 08 Oct 2016 19:14:09 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 163ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 72ms (Views: 69.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:09 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:10 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:10 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:10 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:10 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:10 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:14:10 +0700
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-10-09 02:16:23 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FNkEFxgpcAIShCqeH+NuNBUboX/89jqArR9sILkQvOo="}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 18ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:16:23 +0700
+Processing by ArticlesController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:16:23 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 123ms (Views: 122.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:24 +0700
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-09 02:16:25 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 110ms (Views: 109.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AJryE3NrfPS7zikhh2fNaUtqZhUkCIgiYzd4zMX/WqY=", "user"=>{"email"=>"phan@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'phan@gmail.com' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Sat, 08 Oct 2016 19:16:32 UTC +00:00], ["email", "phan@gmail.com"], ["encrypted_password", "$2a$10$twCeSz7/uy.6m63fVHCeNO4xt06GPY0XlP/ACfKeLEhbs0G3fSRZa"], ["updated_at", Sat, 08 Oct 2016 19:16:32 UTC +00:00]]
+  [1m[35m (260.0ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 2  [["last_sign_in_at", Sat, 08 Oct 2016 19:16:32 UTC +00:00], ["current_sign_in_at", Sat, 08 Oct 2016 19:16:32 UTC +00:00], ["last_sign_in_ip", #<IPAddr: IPv4:127.0.0.1/255.255.255.255>], ["current_sign_in_ip", #<IPAddr: IPv4:127.0.0.1/255.255.255.255>], ["sign_in_count", 1], ["updated_at", Sat, 08 Oct 2016 19:16:32 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 431ms (ActiveRecord: 262.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 64ms (Views: 61.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:32 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:33 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:33 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:33 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:33 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:16:33 +0700
+
+
+Started GET "/width=%2240%22" for 127.0.0.1 at 2016-10-09 02:16:33 +0700
+
+ActionController::RoutingError (No route matches [GET] "/width=%2240%22"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (656.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:17:04 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 77ms (Views: 74.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+
+Started GET "/width=%2240%22" for 127.0.0.1 at 2016-10-09 02:17:05 +0700
+
+ActionController::RoutingError (No route matches [GET] "/width=%2240%22"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (617.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 81ms (Views: 79.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+
+Started GET "/width=%2240%22" for 127.0.0.1 at 2016-10-09 02:17:08 +0700
+
+ActionController::RoutingError (No route matches [GET] "/width=%2240%22"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (589.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:17:38 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 79ms (Views: 76.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+
+Started GET "/width=%2240%22" for 127.0.0.1 at 2016-10-09 02:17:39 +0700
+
+ActionController::RoutingError (No route matches [GET] "/width=%2240%22"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (613.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 62ms (Views: 58.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+
+Started GET "/width=%2240%22" for 127.0.0.1 at 2016-10-09 02:17:47 +0700
+
+ActionController::RoutingError (No route matches [GET] "/width=%2240%22"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (635.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AJryE3NrfPS7zikhh2fNaUtqZhUkCIgiYzd4zMX/WqY="}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+Processing by ArticlesController#index as HTML
+Completed 401 Unauthorized in 0ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 118ms (Views: 116.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:03 +0700
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4Sf+OHe00oPmNq3lgM8Q/YQmE9Bu4m7KBQ92TcgY2Lg=", "user"=>{"email"=>"nguyen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'nguyen@gmail.com' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 1[0m  [["last_sign_in_at", Sat, 08 Oct 2016 19:14:09 UTC +00:00], ["current_sign_in_at", Sat, 08 Oct 2016 19:18:08 UTC +00:00], ["sign_in_count", 3], ["updated_at", Sat, 08 Oct 2016 19:18:08 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 164ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 84ms (Views: 82.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:08 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:09 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 73ms (Views: 71.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:18:45 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 86ms (Views: 83.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:49 +0700
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"md2BoQRWkhVEVz1zpDAcZydcp/ABmb4pK6psCwJsYEQ="}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+Processing by ArticlesController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 115ms (Views: 114.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:52 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:53 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:53 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:53 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:53 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:53 +0700
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-09 02:19:57 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"axrCSaPXk+hxvYJABdaw6SNEfdfEUNMGrZxsRhFnyYw=", "user"=>{"email"=>"phan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'phan@gmail.com' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = 2  [["current_sign_in_at", Sat, 08 Oct 2016 19:19:57 UTC +00:00], ["sign_in_count", 2], ["updated_at", Sat, 08 Oct 2016 19:19:57 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 159ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:19:57 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 73ms (Views: 70.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+
+Started GET "/width=%2240%22" for 127.0.0.1 at 2016-10-09 02:19:58 +0700
+
+ActionController::RoutingError (No route matches [GET] "/width=%2240%22"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (608.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 93ms (Views: 90.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/util.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:52 +0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:53 +0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:53 +0700
+
+
+Started GET "/assets/friendships.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:53 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-10-09 02:21:53 +0700
+
+
+Started GET "/width=%2240%22" for 127.0.0.1 at 2016-10-09 02:21:53 +0700
+
+ActionController::RoutingError (No route matches [GET] "/width=%2240%22"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (9.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (601.0ms)

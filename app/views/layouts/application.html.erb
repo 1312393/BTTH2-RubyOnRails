@@ -21,6 +21,8 @@
                         <p class="alert"><%= alert %></p> -->
                             <% if user_signed_in? %>
                             <li class="nav-item">
+
+                              <img src=<%= current_user.avatar.url%>  width="40" height="40" alt="no pic">
                                 <a class="btn btn-primary "><%= current_user.email%></a>
                             </li>
                             <li class="nav-item">
