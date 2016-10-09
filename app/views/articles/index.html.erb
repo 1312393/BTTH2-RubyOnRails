@@ -6,9 +6,12 @@
         <div class='card' href="/articles">
             <div class='card-block'>
                 <h4 class='card-title'>
-                    <%= article.title %>
-                    from
-                    <%= article.user.email%>
+                  <%if current_user.avatar?%>
+                      <img src="<%= current_user.avatar.url%>" width="40" height="40" >
+                  <%else %>
+                      <img src="../anonymous.png" width="40" height="40" >
+                  <%end%>
+                  <%= article.user.email%>
                 </h4>
                 <%if article.picture? %>
                   <div id="ImageContainerr">

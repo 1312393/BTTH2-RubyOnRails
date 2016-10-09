@@ -2,11 +2,20 @@
 
     <table>
         <p>
-            <strong><%= @article.title %></strong>
-            <br>
+          <h4 class='card-title'>
+            <%if current_user.avatar?%>
+                <img src="<%= current_user.avatar.url%>" width="40" height="40" >
+            <%else %>
+                <img src="../anonymous.png" width="40" height="40" >
+            <%end%>
+            <%= @article.user.email%>
+          </h4>
+          <br>
         </p>
         <p>
-          <img style="max-width: calc(50% - 20px)" src=<%= @article.picture.url%>  alt="nopic" >
+          <% if @article.picture?%>
+              <img style="max-width: calc(50% - 20px)" src=<%= @article.picture.url%>  alt="nopic" >
+          <%end%>
         </p>
         <p>
             <strong>Text:</strong>
