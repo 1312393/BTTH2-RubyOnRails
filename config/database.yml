@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: blog_developmentnew91
+  database: blog_developmentnew94
   pool: 5
   username: rails
   password: password
