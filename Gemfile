@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'redcarpet'
 gem 'bcrypt'
-
+gem 'jwt', '~> 1.5', '>= 1.5.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -47,8 +47,13 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 # gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'sprockets', '2.11.0'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 # Use unicorn as the app server
 # gem 'unicorn'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

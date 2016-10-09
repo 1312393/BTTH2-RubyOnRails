@@ -2,6 +2,9 @@ class FriendshipsController < ApplicationController
   def index
     @users = (current_user.blank? ? User.all : User.find(:all, :conditions => ["id != ?", current_user.id]))
   end
+  def add
+    print [AAAAAAAA]
+  end
   def create
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
