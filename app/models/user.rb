@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :friendships
   has_many :friends, :through => :friendships
+  has_many :follows
+  has_many :followed, :through => :follows
   mount_uploader :avatar, AvatarUploader
   def self.search(search)
     where("email LIKE ?", "%#{search}%")
