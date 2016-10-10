@@ -20,17 +20,22 @@
             <%= f.text_area :body %>
           </div>
           <div class="field">
-            <%if :picture?%>
+            <% if :picture? %>
                 <%= f.label :picture %><br>
-                <% if @article.picture?%>
-                  <img style="max-width: calc(50% - 20px)" src=<%= @article.picture.url%>  alt="nopic" >
-                <%end%>
+                <% if @article.picture? %>
+                    <img style="max-width: calc(50% - 20px)" src=<%= @article.picture.url %>  alt="nopic">
+                <% end %>
                 <%= f.file_field :picture %>
-            <%else%>
+            <% else %>
                 <%= f.label :picture %><br>
                 <%= f.file_field :picture %>
-            <%end%>
+            <% end %>
           </div>
+          <div class="field">
+            <%= f.label :status %><br>
+            <%= f.select(:status, options_for_select([nil, ["happy"], ["sad"], ["exited"], ["normal"] ]))%>
+          </div>
+          <br>
           <div class="actions">
             <%= f.submit %>
           </div>
