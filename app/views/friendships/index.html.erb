@@ -1,15 +1,33 @@
-
-<form accept-charset="UTF-8" action="/" method="post">
-  <% for user in @users %>
-      <% if !(current_user.friends.include? user) %>
-          <% if !(current_user == user) %>
-              <div class="user">
-                <p>
-                  <strong><%= h user.email %></strong>
-                  <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
-                <div class="clear"></div>
-                </p>
-              </div>
-          <% end %>
-      <% end %>
+<div class="col-xs-7">
+  <%= form_tag(friendships_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search user" %>
+      <%= submit_tag "Search" %>
   <% end %>
+
+  <form accept-charset="UTF-8" action="/" method="post">
+    <% for user in @users %>
+        <% if !(current_user.friends.include? user) %>
+            <% if !(current_user == user) %>
+                <div class="user">
+                  <p>
+                    <strong><%= h user.email %></strong>
+                    <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+                  <div class="clear"></div>
+                  </p>
+                </div>
+            <% end %>
+        <% end %>
+    <% end %>
+    </form>
+</div>
+<div class="col-xs-5">
+  <% current_user.friendships.each do |friendship| %>
+      <div class='card-block'>
+        <h5 class='card-title'>
+          <img src=<%= friendship.friend.avatar.url %>  width="40" height="40" alt="no pic">
+          <%= friendship.friend.email %>
+          <%= link_to "remove", friendship, :confirm => 'Are you sure?', :method => :delete %>
+        </h5>
+      </div>
+  <% end %>
+</div>
