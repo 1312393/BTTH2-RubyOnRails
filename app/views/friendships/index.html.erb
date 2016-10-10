@@ -24,7 +24,12 @@
   <% current_user.friendships.each do |friendship| %>
       <div class='card-block'>
         <h5 class='card-title'>
-          <img src=<%= friendship.friend.avatar.url %>  width="40" height="40" alt="no pic">
+          <%if friendship.friend.avatar?%>
+              <img src=<%= friendship.friend.avatar.url %>  width="40" height="40" alt="no pic">
+          <% else %>
+            <img src="../anonymous.png" width="40" height="40">
+          <% end %>
+
           <%= friendship.friend.email %>
           <%= link_to "unfriend", friendship, :confirm => 'Are you sure?', :method => :delete %>
         </h5>
