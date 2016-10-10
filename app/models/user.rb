@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, :through => :friendships
   mount_uploader :avatar, AvatarUploader
+  def self.search(search)
+    where("email LIKE ?", "%#{search}%")
+  end
+
 end
